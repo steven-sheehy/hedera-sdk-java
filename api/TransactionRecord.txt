@@ -1,0 +1,16 @@
+@Nullable public final ContractFunctionResult contractFunctionResult
+@Nullable public final ScheduleId scheduleRef
+public byte[] toBytes()
+public final com.google.protobuf.ByteString transactionHash
+public final Hbar transactionFee
+public final java.lang.String transactionMemo
+public final java.util.List<AssessedCustomFee> assessedCustomFees
+public final java.util.List<TokenAssociation> automaticTokenAssociations
+public final java.util.List<Transfer> transfers
+public final java.util.Map<TokenId,java.util.List<TokenNftTransfer>> tokenNftTransfers
+public final java.util.Map<TokenId,java.util.Map<AccountId,java.lang.Long>> tokenTransfers
+public final org.threeten.bp.Instant consensusTimestamp
+public final TransactionId transactionId
+public final TransactionReceipt receipt
+public java.lang.String toString()
+public static TransactionRecord fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

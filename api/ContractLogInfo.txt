@@ -1,0 +1,7 @@
+public byte[] toBytes()
+public final com.google.protobuf.ByteString bloom
+public final com.google.protobuf.ByteString data
+public final ContractId contractId
+public final java.util.List<com.google.protobuf.ByteString> topics
+public java.lang.String toString()
+public static ContractLogInfo fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

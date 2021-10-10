@@ -1,0 +1,3 @@
+@Nullable public final java.util.List<java.lang.Integer> unknownWordIndices
+public final BadMnemonicReason reason
+public final Mnemonic mnemonic

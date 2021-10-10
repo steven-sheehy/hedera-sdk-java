@@ -1,0 +1,16 @@
+@Deprecated public final int getMaxRetry()
+@Deprecated public final TransactionRecordQuery setMaxRetry(int count)
+@Nullable public final java.util.List<AccountId> getNodeAccountIds()
+@Nullable public TransactionId getTransactionId()
+public final int getMaxAttempts()
+public final org.threeten.bp.Duration getMaxBackoff()
+public final org.threeten.bp.Duration getMinBackoff()
+public final TransactionRecordQuery setMaxAttempts(int maxAttempts)
+public final TransactionRecordQuery setMaxBackoff(org.threeten.bp.Duration maxBackoff)
+public final TransactionRecordQuery setMinBackoff(org.threeten.bp.Duration minBackoff)
+public java8.util.concurrent.CompletableFuture<TransactionRecord> executeAsync(Client client)
+public TransactionRecord execute(Client client, org.threeten.bp.Duration timeout) throws java.util.concurrent.TimeoutException, PrecheckStatusException
+public TransactionRecord execute(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException
+public TransactionRecordQuery()
+public TransactionRecordQuery setNodeAccountIds(java.util.List<AccountId> nodeAccountIds)
+public TransactionRecordQuery setTransactionId(TransactionId transactionId)

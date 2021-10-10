@@ -1,0 +1,5 @@
+public final java.lang.String expectedChecksum
+public final java.lang.String presentChecksum
+public final long num
+public final long realm
+public final long shard

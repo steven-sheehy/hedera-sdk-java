@@ -1,0 +1,7 @@
+public com.google.protobuf.ByteString toBytes()
+public final AccountId accountId
+public final com.google.protobuf.ByteString hash
+public final KeyList keys
+public final org.threeten.bp.Duration duration
+public java.lang.String toString()
+public static LiveHash fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

@@ -1,0 +1,8 @@
+@Nullable public FeeSchedule getCurrent()
+@Nullable public FeeSchedule getNext()
+public byte[] toBytes()
+public FeeSchedules()
+public FeeSchedules setCurrent(@Nullable FeeSchedule current)
+public FeeSchedules setNext(@Nullable FeeSchedule next)
+public java.lang.String toString()
+public static FeeSchedules fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

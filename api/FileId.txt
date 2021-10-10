@@ -1,0 +1,18 @@
+@Deprecated public void validate(Client client) throws BadEntityIdException
+@Nonnegative public final long num
+@Nonnegative public final long realm
+@Nonnegative public final long shard
+@Nullable public java.lang.String getChecksum()
+public boolean equals(@Nullable java.lang.Object o)
+public byte[] toBytes()
+public FileId(@Nonnegative long num)
+public FileId(@Nonnegative long shard, @Nonnegative long realm, @Nonnegative
+public int hashCode()
+public java.lang.String toString()
+public java.lang.String toStringWithChecksum(Client client)
+public static FileId fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException
+public static FileId fromString(java.lang.String id)
+public static final FileId ADDRESS_BOOK
+public static final FileId EXCHANGE_RATES
+public static final FileId FEE_SCHEDULE
+public void validateChecksum(Client client) throws BadEntityIdException

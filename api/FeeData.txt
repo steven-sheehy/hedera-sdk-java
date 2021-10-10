@@ -1,0 +1,4 @@
+public byte[] toBytes()
+public FeeData()
+public java.lang.String toString()
+public static FeeData fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

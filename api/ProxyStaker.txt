@@ -1,0 +1,2 @@
+public final AccountId accountId
+public final Hbar amount

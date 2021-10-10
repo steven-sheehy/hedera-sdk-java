@@ -1,0 +1,7 @@
+@Nullable public final AccountId feeCollectorAccountId
+@Nullable public final TokenId tokenId
+public byte[] toBytes()
+public final java.util.List<AccountId> payerAccountIdList
+public final long amount
+public java.lang.String toString()
+public static AssessedCustomFee fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

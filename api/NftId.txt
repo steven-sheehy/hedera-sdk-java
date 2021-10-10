@@ -1,0 +1,10 @@
+@Nonnegative public final long serial
+public boolean equals(@Nullable java.lang.Object o)
+public byte[] toBytes()
+public final TokenId tokenId
+public int hashCode()
+public java.lang.String toString()
+public java.lang.String toStringWithChecksum(Client client)
+public NftId(TokenId tokenId, @Nonnegative long serial)
+public static NftId fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException
+public static NftId fromString(java.lang.String id)

@@ -1,0 +1,5 @@
+public java.lang.String toString()
+public static final TokenType FUNGIBLE_COMMON
+public static final TokenType NON_FUNGIBLE_UNIQUE
+public static TokenType valueOf(java.lang.String name)
+public static TokenType[] values()

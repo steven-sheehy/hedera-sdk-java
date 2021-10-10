@@ -1,0 +1,5 @@
+@Deprecated @Nonnegative public final java.util.Map<TokenId,java.lang.Long> token
+@Nonnegative public final Hbar hbars
+@Nonnegative public final java.util.Map<TokenId,java.lang.Integer> tokenDecimals
+public final java.util.Map<TokenId,java.lang.Long> tokens
+public java.lang.String toString()

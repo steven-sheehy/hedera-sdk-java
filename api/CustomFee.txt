@@ -1,0 +1,4 @@
+@Nullable public AccountId getFeeCollectorAccountId()
+public byte[] toBytes()
+public static CustomFee fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException
+public static java.util.List<CustomFee> deepCloneList(java.util.List<CustomFee> customFees)

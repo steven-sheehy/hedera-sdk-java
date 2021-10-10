@@ -1,0 +1,7 @@
+@Nullable public final com.hedera.hashgraph.sdk.TopicMessageChunk[] chunks
+@Nullable public final TransactionId transactionId
+public final byte[] contents
+public final byte[] runningHash
+public final long sequenceNumber
+public final org.threeten.bp.Instant consensusTimestamp
+public java.lang.String toString()

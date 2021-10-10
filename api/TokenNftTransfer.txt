@@ -1,0 +1,6 @@
+public byte[] toBytes()
+public final AccountId receiver
+public final AccountId sender
+public final long serial
+public java.lang.String toString()
+public static TokenNftTransfer fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

@@ -1,0 +1,3 @@
+public final AccountId accountId
+public final Hbar amount
+public java.lang.String toString()

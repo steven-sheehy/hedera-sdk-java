@@ -1,0 +1,16 @@
+@Nullable public final AccountId accountId
+@Nullable public final com.google.protobuf.ByteString topicRunningHash
+@Nullable public final ContractId contractId
+@Nullable public final FileId fileId
+@Nullable public final java.lang.Long topicSequenceNumber
+@Nullable public final ScheduleId scheduleId
+@Nullable public final TokenId tokenId
+@Nullable public final TopicId topicId
+@Nullable public final TransactionId scheduledTransactionId
+public byte[] toBytes()
+public final ExchangeRate exchangeRate
+public final java.lang.Long totalSupply
+public final java.util.List<java.lang.Long> serials
+public final Status status
+public java.lang.String toString()
+public static TransactionReceipt fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

@@ -1,0 +1,46 @@
+@Deprecated public Client setMaxQueryPayment(Hbar maxQueryPayment)
+@Deprecated public Client setMaxTransactionFee(Hbar maxTransactionFee)
+@Nullable public AccountId getOperatorAccountId()
+@Nullable public Hbar getDefaultMaxTransactionFee()
+@Nullable public NetworkName getNetworkName()
+@Nullable public PublicKey getOperatorPublicKey()
+public boolean isAutoValidateChecksumsEnabled()
+public Client setAutoValidateChecksums(boolean value)
+public Client setDefaultMaxQueryPayment(Hbar defaultMaxQueryPayment)
+public Client setDefaultMaxTransactionFee(Hbar defaultMaxTransactionFee)
+public Client setMaxAttempts(int maxAttempts)
+public Client setMaxBackoff(org.threeten.bp.Duration maxBackoff)
+public Client setMaxNodeAttempts(int maxNodeAttempts)
+public Client setMaxNodesPerTransaction(int maxNodesPerTransaction)
+public Client setMinBackoff(org.threeten.bp.Duration minBackoff)
+public Client setMirrorNetwork(java.util.List<java.lang.String> network) throws java.lang.InterruptedException
+public Client setNetwork(java.util.Map<java.lang.String,AccountId> network) throws java.lang.InterruptedException, java.util.concurrent.TimeoutException
+public Client setNetworkName(@Nullable NetworkName networkName)
+public Client setNodeWaitTime(org.threeten.bp.Duration nodeWaitTime)
+public Client setOperator(AccountId accountId, PrivateKey privateKey)
+public Client setOperatorWith(AccountId accountId, PublicKey publicKey, java8.util.function.Function<byte[],byte[]> transactionSigner)
+public Client setRequestTimeout(org.threeten.bp.Duration requestTimeout)
+public Hbar getDefaultMaxQueryPayment()
+public int getMaxAttempts()
+public int getMaxNodeAttempts()
+public java8.util.concurrent.CompletableFuture<java.lang.Void> pingAllAsync()
+public java8.util.concurrent.CompletableFuture<java.lang.Void> pingAsync(AccountId nodeAccountId)
+public java.lang.Void ping(AccountId nodeAccountId)
+public java.lang.Void pingAll()
+public java.util.List<java.lang.String> getMirrorNetwork()
+public java.util.Map<java.lang.String,AccountId> getNetwork()
+public org.threeten.bp.Duration getMaxBackoff()
+public org.threeten.bp.Duration getMinBackoff()
+public org.threeten.bp.Duration getNodeWaitTime()
+public org.threeten.bp.Duration getRequestTimeout()
+public static Client forMainnet()
+public static Client forName(java.lang.String name)
+public static Client forNetwork(java.util.Map<java.lang.String,AccountId> networkMap)
+public static Client forPreviewnet()
+public static Client forTestnet()
+public static Client fromConfigFile(java.io.File file) throws java.lang.Exception
+public static Client fromConfigFile(java.lang.String fileName) throws java.lang.Exception
+public static Client fromConfig(java.io.Reader json) throws java.lang.Exception
+public static Client fromConfig(java.lang.String json) throws java.lang.Exception
+public void close(org.threeten.bp.Duration timeout) throws
+public void close() throws java.util.concurrent.TimeoutException

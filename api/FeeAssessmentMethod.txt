@@ -1,0 +1,5 @@
+public java.lang.String toString()
+public static FeeAssessmentMethod valueOf(java.lang.String name)
+public static FeeAssessmentMethod[] values()
+public static final FeeAssessmentMethod EXCLUSIVE
+public static final FeeAssessmentMethod INCLUSIVE

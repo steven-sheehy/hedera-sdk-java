@@ -1,0 +1,17 @@
+@Deprecated public final AccountInfoQuery setMaxRetry(int count)
+@Deprecated public final int getMaxRetry()
+@Nullable public AccountId getAccountId()
+@Nullable public final java.util.List<AccountId> getNodeAccountIds()
+public AccountInfo execute(Client client, org.threeten.bp.Duration timeout) throws java.util.concurrent.TimeoutException, PrecheckStatusException
+public AccountInfo execute(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException
+public AccountInfoQuery()
+public AccountInfoQuery setAccountId(AccountId accountId)
+public AccountInfoQuery setNodeAccountIds(java.util.List<AccountId> nodeAccountIds)
+public final AccountInfoQuery setMaxAttempts(int maxAttempts)
+public final AccountInfoQuery setMaxBackoff(org.threeten.bp.Duration maxBackoff)
+public final AccountInfoQuery setMinBackoff(org.threeten.bp.Duration minBackoff)
+public final int getMaxAttempts()
+public final org.threeten.bp.Duration getMaxBackoff()
+public final org.threeten.bp.Duration getMinBackoff()
+public java8.util.concurrent.CompletableFuture<AccountInfo> executeAsync(Client client)
+public java8.util.concurrent.CompletableFuture<Hbar> getCostAsync(Client client)

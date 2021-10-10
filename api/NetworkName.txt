@@ -1,0 +1,7 @@
+public java.lang.String toString()
+public static final NetworkName MAINNET
+public static final NetworkName PREVIEWNET
+public static final NetworkName TESTNET
+public static NetworkName fromString(java.lang.String networkName)
+public static NetworkName valueOf(java.lang.String name)
+public static NetworkName[] values()

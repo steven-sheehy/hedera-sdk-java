@@ -1,0 +1,21 @@
+@Nullable public final java.lang.String errorMessage
+public boolean getBool(int valIndex)
+public byte[] asBytes()
+public byte[] getBytes32(int valIndex)
+public byte[] getBytes(int valIndex)
+public byte getInt8(int valIndex)
+public byte getUint8(int valIndex)
+public final com.google.protobuf.ByteString bloom
+public final ContractId contractId
+public final java.util.List<ContractLogInfo> logs
+public final long gasUsed
+public int getInt32(int valIndex)
+public int getUint32(int valIndex)
+public java.lang.String getAddress(int valIndex)
+public java.lang.String getString(int valIndex)
+public java.lang.String toString()
+public java.math.BigInteger getInt256(int valIndex)
+public java.math.BigInteger getUint256(int valIndex)
+public java.util.List<java.lang.String> getStringArray(int index)
+public long getInt64(int valIndex)
+public long getUint64(int valIndex)

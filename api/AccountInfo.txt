@@ -1,0 +1,20 @@
+@Nullable public final AccountId proxyAccountId
+public byte[] toBytes()
+public final AccountId accountId
+public final boolean isDeleted
+public final boolean isReceiverSignatureRequired
+public final Hbar balance
+public final Hbar proxyReceived
+public final Hbar receiveRecordThreshold
+public final Hbar sendRecordThreshold
+public final int maxAutomaticTokenAssociations
+public final java.lang.String accountMemo
+public final java.lang.String contractAccountId
+public final java.util.List<LiveHash> liveHashes
+public final java.util.Map<TokenId,TokenRelationship> tokenRelationships
+public final Key key
+public final long ownedNfts
+public final org.threeten.bp.Duration autoRenewPeriod
+public final org.threeten.bp.Instant expirationTime
+public java.lang.String toString()
+public static AccountInfo fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

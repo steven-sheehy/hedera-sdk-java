@@ -1,0 +1,16 @@
+@Deprecated public void validate(Client client) throws BadEntityIdException
+@Nonnegative public final long num
+@Nonnegative public final long realm
+@Nonnegative public final long shard
+@Nullable public java.lang.String getChecksum()
+public boolean equals(@Nullable java.lang.Object o)
+public byte[] toBytes()
+public int hashCode()
+public java.lang.String toString()
+public java.lang.String toStringWithChecksum(Client client)
+public NftId nft(@Nonnegative long serial)
+public static TokenId fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException
+public static TokenId fromString(java.lang.String id)
+public TokenId(@Nonnegative long num)
+public TokenId(@Nonnegative long shard, @Nonnegative long realm, @Nonnegative
+public void validateChecksum(Client client) throws BadEntityIdException

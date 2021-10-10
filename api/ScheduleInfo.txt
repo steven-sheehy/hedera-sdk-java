@@ -1,0 +1,14 @@
+@Nullable public final Key adminKey
+@Nullable public final org.threeten.bp.Instant deletedAt
+@Nullable public final org.threeten.bp.Instant executedAt
+@Nullable public final org.threeten.bp.Instant expirationTime
+@Nullable public final TransactionId scheduledTransactionId
+public byte[] toBytes()
+public final AccountId creatorAccountId
+public final AccountId payerAccountId
+public final java.lang.String memo
+public final KeyList signatories
+public final ScheduleId scheduleId
+public java.lang.String toString()
+public static ScheduleInfo fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException
+public Transaction<?> getScheduledTransaction()

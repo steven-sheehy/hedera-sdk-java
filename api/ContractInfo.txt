@@ -1,0 +1,14 @@
+@Nullable public final Key adminKey
+public byte[] toBytes()
+public final AccountId accountId
+public final boolean isDeleted
+public final ContractId contractId
+public final Hbar balance
+public final java.lang.String contractAccountId
+public final java.lang.String contractMemo
+public final java.util.Map<TokenId,TokenRelationship> tokenRelationships
+public final long storage
+public final org.threeten.bp.Duration autoRenewPeriod
+public final org.threeten.bp.Instant expirationTime
+public java.lang.String toString()
+public static ContractInfo fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

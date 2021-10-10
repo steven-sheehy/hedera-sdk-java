@@ -1,0 +1,21 @@
+public boolean equals(@Nullable java.lang.Object o)
+public Hbar(java.math.BigDecimal amount)
+public Hbar(long amount)
+public Hbar negated()
+public int compareTo(Hbar o)
+public int hashCode()
+public java.lang.String toString()
+public java.lang.String toString(HbarUnit unit)
+public java.math.BigDecimal getValue()
+public java.math.BigDecimal to(HbarUnit unit)
+public long toTinybars()
+public static final Hbar MAX
+public static final Hbar MIN
+public static final Hbar ZERO
+public static Hbar from(java.math.BigDecimal amount, HbarUnit unit)
+public static Hbar from(java.math.BigDecimal hbars)
+public static Hbar from(long amount, HbarUnit unit)
+public static Hbar from(long hbars)
+public static Hbar fromString(java.lang.CharSequence text)
+public static Hbar fromString(java.lang.CharSequence text, HbarUnit unit)
+public static Hbar fromTinybars(long tinybars)

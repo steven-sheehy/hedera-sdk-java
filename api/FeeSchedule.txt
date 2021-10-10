@@ -1,0 +1,9 @@
+@Nullable public org.threeten.bp.Instant getExpirationTime()
+public byte[] toBytes()
+public FeeSchedule()
+public FeeSchedule addTransactionFeeSchedule(TransactionFeeSchedule transactionFeeSchedule)
+public FeeSchedule setExpirationTime(@Nullable org.threeten.bp.Instant expirationTime)
+public FeeSchedule setTransactionFeeSchedules(java.util.List<TransactionFeeSchedule> transactionFeeSchedules)
+public java.lang.String toString()
+public java.util.List<TransactionFeeSchedule> getTransactionFeeSchedules()
+public static FeeSchedule fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

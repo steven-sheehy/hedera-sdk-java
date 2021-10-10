@@ -1,0 +1,10 @@
+@Deprecated @Nullable public FeeData getFeeData()
+@Deprecated public TransactionFeeSchedule setFeeData(@Nullable FeeData feeData)
+public byte[] toBytes()
+public java.lang.String toString()
+public java.util.List<FeeData> getFees()
+public RequestType getRequestType()
+public static TransactionFeeSchedule fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException
+public TransactionFeeSchedule()
+public TransactionFeeSchedule addFee(FeeData fee)
+public TransactionFeeSchedule setRequestType(RequestType requestType)

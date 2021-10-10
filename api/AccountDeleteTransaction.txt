@@ -1,0 +1,17 @@
+@Deprecated public final AccountDeleteTransaction setMaxRetry(int count)
+@Deprecated public final int getMaxRetry()
+@Nullable public AccountId getAccountId()
+@Nullable public AccountId getTransferAccountId()
+@Nullable public final java.util.List<AccountId> getNodeAccountIds()
+public AccountDeleteTransaction()
+public AccountDeleteTransaction setAccountId(AccountId deleteAccountId)
+public AccountDeleteTransaction setTransferAccountId(AccountId transferAccountId)
+public final AccountDeleteTransaction setMaxAttempts(int maxAttempts)
+public final AccountDeleteTransaction setMaxBackoff(org.threeten.bp.Duration maxBackoff)
+public final AccountDeleteTransaction setMinBackoff(org.threeten.bp.Duration minBackoff)
+public final int getMaxAttempts()
+public final org.threeten.bp.Duration getMaxBackoff()
+public final org.threeten.bp.Duration getMinBackoff()
+public java8.util.concurrent.CompletableFuture<TransactionResponse> executeAsync(Client client)
+public TransactionResponse execute(Client client, org.threeten.bp.Duration timeout) throws java.util.concurrent.TimeoutException, PrecheckStatusException
+public TransactionResponse execute(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException

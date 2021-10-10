@@ -1,0 +1,17 @@
+@Deprecated public final int getMaxRetry()
+@Deprecated public final TokenGrantKycTransaction setMaxRetry(int count)
+@Nullable public AccountId getAccountId()
+@Nullable public final java.util.List<AccountId> getNodeAccountIds()
+@Nullable public TokenId getTokenId()
+public final int getMaxAttempts()
+public final org.threeten.bp.Duration getMaxBackoff()
+public final org.threeten.bp.Duration getMinBackoff()
+public final TokenGrantKycTransaction setMaxAttempts(int maxAttempts)
+public final TokenGrantKycTransaction setMaxBackoff(org.threeten.bp.Duration maxBackoff)
+public final TokenGrantKycTransaction setMinBackoff(org.threeten.bp.Duration minBackoff)
+public java8.util.concurrent.CompletableFuture<TransactionResponse> executeAsync(Client client)
+public TokenGrantKycTransaction()
+public TokenGrantKycTransaction setAccountId(AccountId accountId)
+public TokenGrantKycTransaction setTokenId(TokenId tokenId)
+public TransactionResponse execute(Client client, org.threeten.bp.Duration timeout) throws java.util.concurrent.TimeoutException, PrecheckStatusException
+public TransactionResponse execute(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException

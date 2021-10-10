@@ -1,0 +1,6 @@
+public static BadMnemonicReason valueOf(java.lang.String name)
+public static BadMnemonicReason[] values()
+public static final BadMnemonicReason BadLength
+public static final BadMnemonicReason ChecksumMismatch
+public static final BadMnemonicReason NotLegacy
+public static final BadMnemonicReason UnknownWords

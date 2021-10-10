@@ -1,0 +1,5 @@
+public byte[] toBytes()
+public final AccountId accountId
+public final TokenId tokenId
+public java.lang.String toString()
+public static TokenAssociation fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

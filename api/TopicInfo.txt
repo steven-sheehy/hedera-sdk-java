@@ -1,0 +1,12 @@
+@Nullable public final AccountId autoRenewAccountId
+@Nullable public final Key adminKey
+@Nullable public final Key submitKey
+public byte[] toBytes()
+public final com.google.protobuf.ByteString runningHash
+public final java.lang.String topicMemo
+public final long sequenceNumber
+public final org.threeten.bp.Duration autoRenewPeriod
+public final org.threeten.bp.Instant expirationTime
+public final TopicId topicId
+public java.lang.String toString()
+public static TopicInfo fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

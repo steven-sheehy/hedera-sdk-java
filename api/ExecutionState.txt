@@ -1,0 +1,5 @@
+public static ExecutionState valueOf(java.lang.String name)
+public static ExecutionState[] values()
+public static final ExecutionState Error
+public static final ExecutionState Finished
+public static final ExecutionState Retry

@@ -1,0 +1,18 @@
+@Nullable public final AccountId accountId
+@Nullable public final org.threeten.bp.Instant validStart
+public boolean equals(@Nullable java.lang.Object object)
+public boolean getScheduled()
+public byte[] toBytes()
+public int hashCode()
+public java8.util.concurrent.CompletableFuture<TransactionReceipt> getReceiptAsync(Client client)
+public java8.util.concurrent.CompletableFuture<TransactionRecord> getRecordAsync(Client client)
+public java.lang.String toString()
+public java.lang.String toStringWithChecksum(Client client)
+public static TransactionId fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException
+public static TransactionId fromString(java.lang.String s)
+public static TransactionId generate(AccountId accountId)
+public static TransactionId withValidStart(AccountId accountId, org.threeten.bp.Instant validStart)
+public TransactionId(@Nullable AccountId accountId, @Nullable org.threeten.bp.Instant validStart)
+public TransactionId setScheduled(boolean scheduled)
+public TransactionReceipt getReceipt(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException, ReceiptStatusException
+public TransactionRecord getRecord(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException, ReceiptStatusException

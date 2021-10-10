@@ -162,7 +162,7 @@ task integrationTest(type: Test) {
 }
 
 tasks.withType(Javadoc) {
-	source = sourceSets.main.allJava + file("$buildDir/generated/sources/annotationProcessor/java/main")
+	source = ['src/main/java', 'build/generated/sources/annotationProcessor/java/main']
 }
 
 tasks.withType(Test) {

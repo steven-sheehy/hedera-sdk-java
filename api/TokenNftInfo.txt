@@ -1,0 +1,7 @@
+public byte[] toBytes()
+public final AccountId accountId
+public final byte[] metadata
+public final NftId nftId
+public final org.threeten.bp.Instant creationTime
+public java.lang.String toString()
+public static TokenNftInfo fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

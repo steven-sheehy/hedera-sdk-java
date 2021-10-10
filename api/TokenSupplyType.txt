@@ -1,0 +1,5 @@
+public java.lang.String toString()
+public static final TokenSupplyType FINITE
+public static final TokenSupplyType INFINITE
+public static TokenSupplyType valueOf(java.lang.String name)
+public static TokenSupplyType[] values()

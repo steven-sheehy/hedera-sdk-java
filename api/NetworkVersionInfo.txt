@@ -1,0 +1,4 @@
+public byte[] toBytes()
+public final SemanticVersion protobufVersion
+public final SemanticVersion servicesVersion
+public static NetworkVersionInfo fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

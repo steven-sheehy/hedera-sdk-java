@@ -1,0 +1,20 @@
+public boolean isDerivable()
+public byte[] sign(byte[] message)
+public byte] signTransaction([Transaction<?> transaction)
+public byte[] toBytes()
+public java.lang.String toString()
+public java.lang.String toStringDER()
+public java.lang.String toStringRaw()
+public PrivateKey derive(int index)
+public PrivateKey legacyDerive(int index)
+public PrivateKey legacyDerive(long index)
+public PublicKey getPublicKey()
+public static PrivateKey fromBytes(byte[] privateKey)
+public static PrivateKey fromMnemonic(Mnemonic mnemonic)
+public static PrivateKey fromMnemonic(Mnemonic mnemonic, java.lang.String passphrase)
+public static PrivateKey fromPem(java.lang.String encodedPem, @Nullable java.lang.String password) throws java.io.IOException
+public static PrivateKey fromPem(java.lang.String pemEncoded) throws java.io.IOException
+public static PrivateKey fromString(java.lang.String privateKey)
+public static PrivateKey generate()
+public static PrivateKey readPem(java.io.Reader pemFile, @Nullable java.lang.String password) throws java.io.IOException
+public static PrivateKey readPem(java.io.Reader pemFile) throws java.io.IOException

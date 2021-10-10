@@ -1,0 +1,17 @@
+@Deprecated public void validate(Client client) throws BadEntityIdException
+@Nonnegative public final long num
+@Nonnegative public final long realm
+@Nonnegative public final long shard
+@Nullable public java.lang.String getChecksum()
+public AccountId(@Nonnegative long num)
+public AccountId(@Nonnegative long shard, @Nonnegative long realm,
+public boolean equals(@Nullable java.lang.Object o)
+public byte[] toBytes()
+public int hashCode()
+public java.lang.String toSolidityAddress()
+public java.lang.String toString()
+public java.lang.String toStringWithChecksum(Client client)
+public static AccountId fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException
+public static AccountId fromSolidityAddress(java.lang.String address)
+public static AccountId fromString(java.lang.String id)
+public void validateChecksum(Client client) throws BadEntityIdException

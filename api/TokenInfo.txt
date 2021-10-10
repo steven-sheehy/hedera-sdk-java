@@ -1,0 +1,26 @@
+@Nullable public final AccountId autoRenewAccount
+@Nullable public final java.lang.Boolean defaultFreezeStatus
+@Nullable public final java.lang.Boolean defaultKycStatus
+@Nullable public final Key adminKey
+@Nullable public final Key feeScheduleKey
+@Nullable public final Key freezeKey
+@Nullable public final Key kycKey
+@Nullable public final Key supplyKey
+@Nullable public final Key wipeKey
+@Nullable public final org.threeten.bp.Duration autoRenewPeriod
+@Nullable public final org.threeten.bp.Instant expirationTime
+public byte[] toBytes()
+public final AccountId treasuryAccountId
+public final boolean isDeleted
+public final int decimals
+public final java.lang.String name
+public final java.lang.String symbol
+public final java.lang.String tokenMemo
+public final java.util.List<CustomFee> customFees
+public final long maxSupply
+public final long totalSupply
+public final TokenId tokenId
+public final TokenSupplyType supplyType
+public final TokenType tokenType
+public java.lang.String toString()
+public static TokenInfo fromBytes(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException

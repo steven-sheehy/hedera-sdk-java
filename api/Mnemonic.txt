@@ -1,0 +1,10 @@
+public boolean isLegacy
+public final java.util.List<java.lang.CharSequence> words
+public java.lang.String toString()
+public PrivateKey toLegacyPrivateKey() throws BadMnemonicException
+public PrivateKey toPrivateKey(java.lang.String passphrase) throws BadMnemonicException
+public PrivateKey toPrivateKey() throws BadMnemonicException
+public static Mnemonic fromString(java.lang.String mnemonicString) throws BadMnemonicException
+public static Mnemonic fromWords(java.util.List<? extends java.lang.CharSequence> words) throws BadMnemonicException
+public static Mnemonic generate12()
+public static Mnemonic generate24()

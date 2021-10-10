@@ -1,0 +1,10 @@
+public java.lang.String toString()
+public static final HbarUnit GIGABAR
+public static final HbarUnit HBAR
+public static final HbarUnit KILOBAR
+public static final HbarUnit MEGABAR
+public static final HbarUnit MICROBAR
+public static final HbarUnit MILLIBAR
+public static final HbarUnit TINYBAR
+public static HbarUnit valueOf(java.lang.String name)
+public static HbarUnit[] values()

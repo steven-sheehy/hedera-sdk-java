@@ -1,0 +1,7 @@
+public CustomRoyaltyFee()
+public CustomRoyaltyFee setDenominator(long denominator)
+public CustomRoyaltyFee setFallbackFee(CustomFixedFee fallbackFee)
+public CustomRoyaltyFee setFeeCollectorAccountId(AccountId feeCollectorAccountId)
+public CustomRoyaltyFee setNumerator(long numerator)
+public long getDenominator()
+public long getNumerator()

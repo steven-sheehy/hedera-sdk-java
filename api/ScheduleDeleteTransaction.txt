@@ -1,0 +1,15 @@
+@Deprecated public final int getMaxRetry()
+@Deprecated public final ScheduleDeleteTransaction setMaxRetry(int count)
+@Nullable public final java.util.List<AccountId> getNodeAccountIds()
+@Nullable public ScheduleId getScheduleId()
+public final int getMaxAttempts()
+public final org.threeten.bp.Duration getMaxBackoff()
+public final org.threeten.bp.Duration getMinBackoff()
+public final ScheduleDeleteTransaction setMaxAttempts(int maxAttempts)
+public final ScheduleDeleteTransaction setMaxBackoff(org.threeten.bp.Duration maxBackoff)
+public final ScheduleDeleteTransaction setMinBackoff(org.threeten.bp.Duration minBackoff)
+public java8.util.concurrent.CompletableFuture<TransactionResponse> executeAsync(Client client)
+public ScheduleDeleteTransaction()
+public ScheduleDeleteTransaction setScheduleId(ScheduleId scheduleId)
+public TransactionResponse execute(Client client, org.threeten.bp.Duration timeout) throws java.util.concurrent.TimeoutException, PrecheckStatusException
+public TransactionResponse execute(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException

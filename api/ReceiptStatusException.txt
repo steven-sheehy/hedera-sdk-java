@@ -1,0 +1,3 @@
+public final TransactionId transactionId
+public final TransactionReceipt receipt
+public java.lang.String getMessage()

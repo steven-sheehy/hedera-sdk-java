@@ -1,0 +1,9 @@
+@Nullable public final TransactionId scheduledTransactionId
+public final AccountId nodeId
+public final byte[] transactionHash
+public final TransactionId transactionId
+public java8.util.concurrent.CompletableFuture<TransactionReceipt> getReceiptAsync(Client client)
+public java8.util.concurrent.CompletableFuture<TransactionRecord> getRecordAsync(Client client)
+public java.lang.String toString()
+public TransactionReceipt getReceipt(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException, ReceiptStatusException
+public TransactionRecord getRecord(Client client) throws java.util.concurrent.TimeoutException, PrecheckStatusException, ReceiptStatusException
