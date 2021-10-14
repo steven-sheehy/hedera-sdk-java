@@ -8,6 +8,7 @@ import com.hedera.hashgraph.sdk.proto.ResponseHeader;
 import io.grpc.MethodDescriptor;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -23,6 +24,8 @@ public final class AccountBalanceQuery extends Query<AccountBalance, AccountBala
     private ContractId contractId = null;
 
     public AccountBalanceQuery() {
+        var v = new HashMap<String, AccountId>();
+        v.computeIfAbsent("x", (x) -> new AccountId(0));
     }
 
     @Nullable
