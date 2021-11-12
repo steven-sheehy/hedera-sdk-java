@@ -18,17 +18,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
 abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comparable<ManagedNode<N, KeyT>> {
-    private static final int GET_STATE_INTERVAL_MILLIS = 50;
-    private static final int GET_STATE_TIMEOUT_MILLIS = 10000;
-    private static final int GET_STATE_MAX_ATTEMPTS = GET_STATE_TIMEOUT_MILLIS / GET_STATE_INTERVAL_MILLIS;
-    private boolean hasConnected = false;
 
-    protected final ExecutorService executor;
-
-    /**
-     * Address of this node
-     */
-    protected final ManagedNodeAddress address;
 
     /**
      * Timestamp of when the last time this node was used in milliseconds.
@@ -67,21 +57,13 @@ abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comp
      */
     protected long attempts;
 
-    @Nullable
-    protected ManagedChannel channel = null;
-
-    protected ManagedNode(ManagedNodeAddress address, ExecutorService executor) {
-        this.executor = executor;
-        this.address = address;
+    protected ManagedNode() {
         this.currentBackoff = Client.DEFAULT_MIN_BACKOFF;
         this.minBackoff = Client.DEFAULT_MIN_BACKOFF;
         this.maxBackoff = Client.DEFAULT_MAX_BACKOFF;
     }
 
-    protected ManagedNode(N node, ManagedNodeAddress address) {
-        this.address = address;
-
-        this.executor = node.executor;
+    protected ManagedNode(N node) {
         this.minBackoff = node.minBackoff;
         this.maxBackoff = node.maxBackoff;
         this.backoffUntil = node.backoffUntil;
@@ -105,15 +87,6 @@ abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comp
     abstract N toSecure();
 
     abstract KeyT getKey();
-
-    /**
-     * Get the address of this node
-     *
-     * @return
-     */
-    ManagedNodeAddress getAddress() {
-        return address;
-    }
 
     /**
      * Get the minimum backoff
@@ -213,69 +186,9 @@ abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comp
         return TlsChannelCredentials.create();
     }
 
-    /**
-     * Get the gRPC channel for this node
-     *
-     * @return
-     */
-    synchronized ManagedChannel getChannel() {
+    void markUsed() {
         useCount++;
         lastUsed = System.currentTimeMillis();
-
-        if (channel != null) {
-            return channel;
-        }
-
-        ManagedChannelBuilder<?> channelBuilder;
-
-        if (address.isInProcess()) {
-            channelBuilder = InProcessChannelBuilder.forName(Objects.requireNonNull(address.getName()));
-        } else if (address.isTransportSecurity()) {
-            channelBuilder = Grpc.newChannelBuilder(address.toString(), getChannelCredentials()).overrideAuthority("127.0.0.1");
-        } else {
-            channelBuilder = ManagedChannelBuilder.forTarget(address.toString()).usePlaintext();
-        }
-
-        channel = channelBuilder
-            .keepAliveTimeout(10, TimeUnit.SECONDS)
-            .userAgent(getUserAgent())
-            .executor(executor)
-            .build();
-
-        return channel;
-    }
-
-    boolean channelFailedToConnect() {
-        if (hasConnected) {
-            return false;
-        }
-        hasConnected = (getChannel().getState(true) == ConnectivityState.READY);
-        try {
-            for (@Var int i = 0; i < GET_STATE_MAX_ATTEMPTS && !hasConnected; i++) {
-                TimeUnit.MILLISECONDS.sleep(GET_STATE_INTERVAL_MILLIS);
-                hasConnected = (getChannel().getState(true) == ConnectivityState.READY);
-            }
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        return !hasConnected;
-    }
-
-    private CompletableFuture<Boolean> channelFailedToConnectAsync(int i, ConnectivityState state) {
-        hasConnected = (state == ConnectivityState.READY);
-        if (i >= GET_STATE_MAX_ATTEMPTS || hasConnected) {
-            return CompletableFuture.completedFuture(!hasConnected);
-        }
-        return Delayer.delayFor(GET_STATE_INTERVAL_MILLIS, executor).thenCompose(ignored -> {
-            return channelFailedToConnectAsync(i + 1, getChannel().getState(true));
-        });
-    }
-
-    CompletableFuture<Boolean> channelFailedToConnectAsync() {
-        if (hasConnected) {
-            return CompletableFuture.completedFuture(false);
-        }
-        return channelFailedToConnectAsync(0, getChannel().getState(true));
     }
 
     /**
@@ -284,13 +197,7 @@ abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comp
      * @param timeout
      * @throws InterruptedException
      */
-    synchronized void close(Duration timeout) throws InterruptedException {
-        if (channel != null) {
-            channel.shutdown();
-            channel.awaitTermination(timeout.getSeconds(), TimeUnit.SECONDS);
-            channel = null;
-        }
-    }
+    abstract void close(Duration timeout) throws InterruptedException;
 
     /**
      * Compares one node to another. The order is determined by health. If both nodes are healthy then their {@link ManagedNode#useCount}
@@ -328,11 +235,5 @@ abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comp
                 return 0;
             }
         }
-    }
-
-    private String getUserAgent() {
-        var thePackage = getClass().getPackage();
-        var implementationVersion = thePackage != null ? thePackage.getImplementationVersion() : null;
-        return "hedera-sdk-java/" + ((implementationVersion != null) ? ("v" + implementationVersion) : "DEV");
     }
 }

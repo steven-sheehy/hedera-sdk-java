@@ -62,7 +62,7 @@ class MirrorNetwork extends ManagedNetwork<MirrorNetwork, String, MirrorNode> {
         for (int i = this.nodes.size() - 1; i >= 0; i--) {
             var node = this.nodes.get(i);
 
-            if (!addresses.contains(node.getAddress().toString())) {
+            if (!addresses.contains(node.channelWrapper.getAddress().toString())) {
                 nodes.add(i);
             }
         }

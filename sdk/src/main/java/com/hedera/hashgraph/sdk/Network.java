@@ -138,6 +138,7 @@ class Network extends ManagedNetwork<Network, AccountId, Node> {
     }
 
     Map<String, AccountId> getNetwork() {
+        // TODO
         return StreamSupport.stream(network.values())
             .collect(Collectors.toUnmodifiableMap((node -> node.getAddress().toString()), Node::getAccountId));
     }
@@ -153,15 +154,11 @@ class Network extends ManagedNetwork<Network, AccountId, Node> {
     protected List<Integer> getNodesToRemove(Map<String, AccountId> network) {
         var nodes = new ArrayList<Integer>(this.nodes.size());
         var newNodeAccountIds = network.values();
-        var inverted = HashBiMap.create(network).inverse();
 
         for (int i = this.nodes.size() - 1; i >= 0; i--) {
             var node = this.nodes.get(i);
 
-            if (
-                !newNodeAccountIds.contains(node.getAccountId()) ||
-                    !Objects.requireNonNull(inverted.get(node.getAccountId())).equals(node.getAddress().toString())
-            ) {
+            if (!newNodeAccountIds.contains(node.getAccountId())) {
                 nodes.add(i);
             }
         }

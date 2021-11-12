@@ -77,6 +77,8 @@ class Node extends ManagedNode<Node, AccountId> {
             .build();
     }
 
+    // TODO: override increaseDelay() to move to next channelWrapper
+
     @Override
     public String toString() {
         return accountId.toString();

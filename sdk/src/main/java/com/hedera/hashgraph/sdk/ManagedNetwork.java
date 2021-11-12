@@ -227,6 +227,9 @@ abstract class ManagedNetwork<
      * @throws InterruptedException - when acquiring the lock
      */
     synchronized ManagedNetworkT setNetwork(Map<String, KeyT> network) throws TimeoutException, InterruptedException {
+
+        // TODO: setNetwork just needs to be totally refactored
+
         // getNodesToRemove() should always return the list in reverse order
         for (var index : getNodesToRemove(network)) {
             var stopAt = Instant.now().getEpochSecond() + closeTimeout.getSeconds();
@@ -319,6 +322,8 @@ abstract class ManagedNetwork<
      */
     synchronized void close(Duration timeout) throws TimeoutException, InterruptedException {
         var stopAt = Instant.now().getEpochSecond() + timeout.getSeconds();
+
+        // TODO
 
         // Start the shutdown process on all nodes
         for (var node : nodes) {
