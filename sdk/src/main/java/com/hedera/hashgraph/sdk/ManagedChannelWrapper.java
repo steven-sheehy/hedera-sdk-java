@@ -111,6 +111,18 @@ public class ManagedChannelWrapper {
         return channelFailedToConnectAsync(0, getChannel().getState(true));
     }
 
+    void shutdown() {
+        if (channel != null) {
+            channel.shutdown();
+        }
+    }
+
+    void awaitTermination(long timeoutSeconds) throws InterruptedException {
+        if (channel != null) {
+            channel.awaitTermination(timeoutSeconds, TimeUnit.SECONDS);
+        }
+    }
+
     /**
      * Close the current nodes channel
      *

@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comparable<ManagedNode<N, KeyT>> {
 
+    protected final ExecutorService executor;
 
     /**
      * Timestamp of when the last time this node was used in milliseconds.
@@ -57,13 +58,15 @@ abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comp
      */
     protected long attempts;
 
-    protected ManagedNode() {
+    protected ManagedNode(ExecutorService executor) {
+        this.executor = executor;
         this.currentBackoff = Client.DEFAULT_MIN_BACKOFF;
         this.minBackoff = Client.DEFAULT_MIN_BACKOFF;
         this.maxBackoff = Client.DEFAULT_MAX_BACKOFF;
     }
 
     protected ManagedNode(N node) {
+        this.executor = node.executor;
         this.minBackoff = node.minBackoff;
         this.maxBackoff = node.maxBackoff;
         this.backoffUntil = node.backoffUntil;
@@ -197,7 +200,16 @@ abstract class ManagedNode<N extends ManagedNode<N, KeyT>, KeyT> implements Comp
      * @param timeout
      * @throws InterruptedException
      */
-    abstract void close(Duration timeout) throws InterruptedException;
+    void close(Duration timeout) throws InterruptedException {
+        shutdownChannels();
+        awaitChannelsTermination(timeout);
+    }
+
+    abstract void shutdownChannels();
+
+    abstract void awaitChannelsTermination(Duration timeout) throws InterruptedException;
+
+    abstract ManagedChannelWrapper getChannelWrapperForExecute();
 
     /**
      * Compares one node to another. The order is determined by health. If both nodes are healthy then their {@link ManagedNode#useCount}

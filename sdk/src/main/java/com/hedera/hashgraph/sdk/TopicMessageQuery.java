@@ -165,7 +165,7 @@ public final class TopicMessageQuery {
     ) throws InterruptedException {
         // TODO: check status of channel before using it?
         ClientCall<ConsensusTopicQuery, ConsensusTopicResponse> call =
-            client.mirrorNetwork.getNextMirrorNode().getChannel()
+            client.mirrorNetwork.getNextMirrorNode().getChannelWrapperForExecute().getChannel()
                 .newCall(ConsensusServiceGrpc.getSubscribeTopicMethod(), CallOptions.DEFAULT);
 
         subscriptionHandle.setOnUnsubscribe(() -> {

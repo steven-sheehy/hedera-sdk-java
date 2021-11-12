@@ -208,7 +208,7 @@ abstract class Executable<SdkRequestT, ProtoRequestT, ResponseT, O> implements W
                 delay(grpcRequest.getNode().getRemainingTimeForBackoff());
             }
 
-            if (grpcRequest.getNode().channelFailedToConnect()) {
+            if (grpcRequest.getChannelWrapper().channelFailedToConnect()) {
                 lastException = grpcRequest.reactToConnectionFailure();
                 delay(grpcRequest.getDelay());
                 continue;
@@ -306,7 +306,7 @@ abstract class Executable<SdkRequestT, ProtoRequestT, ResponseT, O> implements W
                 .thenCompose((v) -> executeAsync(client, attempt, lastException));
         }
 
-        return grpcRequest.getNode().channelFailedToConnectAsync().thenCompose(connectionFailed -> {
+        return grpcRequest.getChannelWrapper().channelFailedToConnectAsync().thenCompose(connectionFailed -> {
             if (connectionFailed) {
                 var connectionException = grpcRequest.reactToConnectionFailure();
                 return Delayer.delayFor(grpcRequest.getDelay(), client.executor)
@@ -394,6 +394,7 @@ abstract class Executable<SdkRequestT, ProtoRequestT, ResponseT, O> implements W
 
     private class GrpcRequest {
         private final Node node;
+        private final ManagedChannelWrapper channelWrapper;
         private final int attempt;
         //private final ClientCall<ProtoRequestT, ResponseT> call;
         private final ProtoRequestT request;
@@ -407,6 +408,7 @@ abstract class Executable<SdkRequestT, ProtoRequestT, ResponseT, O> implements W
         GrpcRequest(int attempt) {
             this.attempt = attempt;
             this.node = Executable.this.getNodeForExecute(attempt);
+            this.channelWrapper = node.getChannelWrapperForExecute();
             this.request = Executable.this.getRequestForExecute();
             this.startAt = System.nanoTime();
 
@@ -418,8 +420,12 @@ abstract class Executable<SdkRequestT, ProtoRequestT, ResponseT, O> implements W
             return node;
         }
 
+        public ManagedChannelWrapper getChannelWrapper() {
+            return channelWrapper;
+        }
+
         public ClientCall<ProtoRequestT, ResponseT> createCall() {
-            return this.node.getChannel().newCall(Executable.this.getMethodDescriptor(), CallOptions.DEFAULT);
+            return this.channelWrapper.channel.newCall(Executable.this.getMethodDescriptor(), CallOptions.DEFAULT);
         }
 
         public ProtoRequestT getRequest() {

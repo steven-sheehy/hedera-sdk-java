@@ -201,6 +201,7 @@ abstract class ManagedNetwork<
         return (ManagedNetworkT) this;
     }
 
+    // TODO: this will probably have to go.
     protected abstract ManagedNodeT createNodeFromNetworkEntry(Map.Entry<String, KeyT> entry);
 
     /**
@@ -323,13 +324,9 @@ abstract class ManagedNetwork<
     synchronized void close(Duration timeout) throws TimeoutException, InterruptedException {
         var stopAt = Instant.now().getEpochSecond() + timeout.getSeconds();
 
-        // TODO
-
         // Start the shutdown process on all nodes
         for (var node : nodes) {
-            if (node.channel != null) {
-                node.channel = node.channel.shutdown();
-            }
+            node.shutdownChannels();
         }
 
         // Await termination for all nodes
@@ -337,15 +334,7 @@ abstract class ManagedNetwork<
             if (stopAt - Instant.now().getEpochSecond() == 0) {
                 throw new TimeoutException("Failed to properly shutdown all channels");
             }
-
-            if (node.channel != null) {
-                // InterruptedException needs to be caught here to prevent early exist without releasing lock
-                try {
-                    node.channel.awaitTermination(stopAt - Instant.now().getEpochSecond(), TimeUnit.SECONDS);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
+            node.awaitChannelsTermination(Duration.ofSeconds(stopAt - Instant.now().getEpochSecond()));
         }
 
         nodes.clear();

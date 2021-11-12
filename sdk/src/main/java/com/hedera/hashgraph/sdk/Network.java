@@ -138,16 +138,21 @@ class Network extends ManagedNetwork<Network, AccountId, Node> {
     }
 
     Map<String, AccountId> getNetwork() {
-        // TODO
-        return StreamSupport.stream(network.values())
-            .collect(Collectors.toUnmodifiableMap((node -> node.getAddress().toString()), Node::getAccountId));
+        var retval = new HashMap<String, AccountId>();
+        for (var node : nodes) {
+            for (var channel : node.channelWrappers) {
+                retval.put(channel.address.toString(), node.getAccountId());
+            }
+        }
+        return retval;
     }
 
     @Override
     protected Node createNodeFromNetworkEntry(Map.Entry<String, AccountId> entry) {
-        return new Node(entry.getValue(), entry.getKey(), executor)
+        return new Node(entry.getValue(), executor)
             .setMinBackoff(minBackoff)
-            .setVerifyCertificates(verifyCertificates);
+            .setVerifyCertificates(verifyCertificates)
+            .addAddress(entry.getKey());
     }
 
     @Override

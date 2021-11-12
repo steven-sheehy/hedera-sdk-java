@@ -8,7 +8,7 @@ class MirrorNode extends ManagedNode<MirrorNode, String> {
     protected final ManagedChannelWrapper channelWrapper;
 
     MirrorNode(ManagedNodeAddress address, ExecutorService executor) {
-        super();
+        super(executor);
         channelWrapper = new ManagedChannelWrapper(this, executor, address);
     }
 
@@ -35,7 +35,19 @@ class MirrorNode extends ManagedNode<MirrorNode, String> {
     }
 
     @Override
-    void close(Duration timeout) throws InterruptedException {
-        channelWrapper.close(timeout);
+    void shutdownChannels() {
+        channelWrapper.shutdown();
     }
+
+    @Override
+    void awaitChannelsTermination(Duration timeout) throws InterruptedException {
+        channelWrapper.awaitTermination(timeout.getSeconds());
+    }
+
+    @Override
+    ManagedChannelWrapper getChannelWrapperForExecute() {
+        return channelWrapper;
+    }
+
+
 }
