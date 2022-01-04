@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeoutException;
 
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 class AccountIdTest {
 
     static Client mainnetClient;
@@ -49,6 +51,11 @@ class AccountIdTest {
     @Test
     void fromStringWithChecksumOnPreviewnet() {
         SnapshotMatcher.expect(AccountId.fromString("0.0.123-ntjly").toStringWithChecksum(previewnetClient)).toMatchSnapshot();
+    }
+
+    @Test
+    void checksumIsNotBuggy() {
+        assertNotEquals(EntityIdHelper.checksum("1", "0.0.3"), EntityIdHelper.checksum("10", "0.0.3"));
     }
 
     @Test
